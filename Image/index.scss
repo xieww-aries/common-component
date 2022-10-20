@@ -1,0 +1,105 @@
+$mod-name: '.ihub-try-img';
+
+#{$mod-name} {
+  display: block;
+  overflow: hidden;
+  position: relative;
+  font-size: 0;
+
+  &#{$mod-name}--widthfix {
+    height: 100%;
+  }
+  &#{$mod-name}--heightfix {
+    height: 100%;
+  }
+  &#{$mod-name}--rect {
+    height: 0 !important;
+    width: 100% !important;
+    overflow: hidden;
+    padding-top: 100%;
+    position: relative;
+  }
+
+  &__mode {
+    // 缩放模式，宽度不变，高度自动变化，保持原图宽高比不变
+    &-widthfix {
+      width: 100%;
+    }
+    // 缩放模式，高度不变，宽度自动变化，保持原图宽高比不变
+    &-heightfix {
+      height: 100%;
+    }
+    // 缩放模式，不保持纵横比缩放图片，使图片的宽高完全拉伸至填满 image 元素
+    &-scaletofill {
+      width: 100%;
+      height: 100%;
+    }
+    // 缩放模式，保持纵横比缩放图片，使图片的长边能完全显示出来。也就是说，可以完整地将图片显示出来。
+    &-aspectfit {
+      max-width: 100%;
+      max-height: 100%;
+    }
+    // 缩放模式，保持纵横比缩放图片，只保证图片的短边能完全显示出来。也就是说，图片通常只在水平或垂直方向是完整的，另一个方向将会发生截取。
+    &-aspectfill {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate3d(-50%, -50%, 0);
+      &--width {
+        // min-width: 100%;
+        height: 100%;
+      }
+      &--height {
+        width: 100%;
+        // min-height: 100%;
+      }
+    }
+    // 裁剪模式，长框一致 框度100%
+    &-rect {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+    }
+    // 裁剪模式，不缩放图片，只显示图片的顶部区域
+    &-top {
+      width: 100%;
+      top: 0;
+    }
+    // 裁剪模式，不缩放图片，只显示图片的底部区域
+    &-bottom {
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+    }
+    // 裁剪模式，不缩放图片，只显示图片的左边区域
+    &-left {
+      height: 100%;
+      left: 0;
+    }
+    // 裁剪模式，不缩放图片，只显示图片的右边区域
+    &-right {
+      position: absolute;
+      height: 100%;
+      right: 0;
+    }
+    // 裁剪模式，不缩放图片，只显示图片的右上边区域
+    &-topright {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    // 剪模式，不缩放图片，只显示图片的左下边区域
+    &-bottomleft {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+    // 裁剪模式，不缩放图片，只显示图片的右下边区域
+    &-bottomright {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+    }
+  }
+}
